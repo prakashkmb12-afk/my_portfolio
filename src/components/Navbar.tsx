@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sun, Moon, Menu, X, Terminal, FileText } from "lucide-react";
+import { Sun, Moon, Menu, X, Terminal, Download } from "lucide-react";
 import { useActiveSection } from "src/hooks/useActiveSection";
 
 const navItems = [
@@ -100,7 +100,7 @@ export default function Navbar() {
             download
             className="hidden sm:flex items-center gap-1.5 px-4 py-2 text-xs md:text-sm font-semibold rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 shadow-md shadow-primary/20 hover:scale-[1.02] cursor-pointer"
           >
-            <FileText size={14} />
+            <Download size={14} />
             <span>Resume</span>
           </a>
 
@@ -143,7 +143,7 @@ export default function Navbar() {
               download
               className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm transition-opacity hover:opacity-90 shadow-md shadow-primary/20"
             >
-              <FileText size={16} />
+              <Download size={16} />
               <span>Download Resume</span>
             </a>
           </motion.div>

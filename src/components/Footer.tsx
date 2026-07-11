@@ -25,13 +25,13 @@ export default function Footer() {
         <div className="flex items-center gap-2 text-muted-foreground">
           <Terminal size={16} />
           <span className="font-mono text-xs md:text-sm">
-            [balaji-portfolio ~] &copy; {currentYear} &middot; Built with Next.js &amp; R3F
+            [prakash-portfolio ~] &copy; {currentYear} &middot; Built with Next.js &amp; R3F
           </span>
         </div>
 
         {/* Center: Quick Sitemap */}
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-          {["home", "about", "skills", "timeline", "projects", "contact"].map((item) => (
+          {["home", "about", "skills", "projects", "contact"].map((item) => (
             <button
               key={item}
               onClick={() => handleScrollTo(item)}

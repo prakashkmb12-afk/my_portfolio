@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Update this URL with your custom domain once deployed
-  const baseUrl = "https://balaji.ai";
+  const baseUrl = "https://prakash.ai";
 
   return [
     {

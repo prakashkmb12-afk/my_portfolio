@@ -30,7 +30,7 @@ export default function StatsDashboard() {
   useEffect(() => {
     async function fetchStats() {
       try {
-        const res = await fetch("/api/stats?github=balaji&leetcode=balaji");
+        const res = await fetch("/api/stats?github=prakashkmb12-afk&leetcode=prakashkmb12-afk");
         if (res.ok) {
           const data = await res.json();
           setStats(data);

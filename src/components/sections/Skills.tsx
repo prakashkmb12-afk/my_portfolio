@@ -137,15 +137,6 @@ export default function Skills() {
               {/* Header */}
               <div className="flex items-center justify-between gap-2 mb-2">
                 <span className="font-bold text-sm md:text-base text-foreground">{skill.name}</span>
-                <span className={`text-xs font-semibold px-2 py-0.5 rounded-md ${
-                  skill.label === "Advanced" 
-                    ? "bg-indigo-500/10 text-indigo-400"
-                    : skill.label === "Intermediate"
-                    ? "bg-emerald-500/10 text-emerald-400"
-                    : "bg-muted text-muted-foreground"
-                }`}>
-                  {skill.label}
-                </span>
               </div>
 
               {/* Progress bar container */}

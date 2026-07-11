@@ -10,8 +10,8 @@ const CACHE_DURATION = 1000 * 60 * 15; // 15 minutes cache
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const githubUser = searchParams.get("github") || "balaji"; // fallback name
-  const leetcodeUser = searchParams.get("leetcode") || "balaji"; // fallback name
+  const githubUser = searchParams.get("github") || "prakashkmb12-afk"; // fallback name
+  const leetcodeUser = searchParams.get("leetcode") || "prakashkmb12-afk"; // fallback name
 
   // Check cache first
   const now = Date.now();

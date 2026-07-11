@@ -40,7 +40,7 @@ export default function About() {
             </div>
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground font-mono">
               <Terminal size={12} />
-              <span>balaji@ai-workspace:~</span>
+              <span>prakash@ai-workspace:~</span>
             </div>
             <div className="w-10"></div> {/* Spacer to center title */}
           </div>
@@ -48,7 +48,7 @@ export default function About() {
           {/* Terminal Body */}
           <div className="p-4 md:p-6 font-mono text-xs md:text-sm leading-relaxed space-y-4 text-foreground/90 overflow-x-auto">
             <div>
-              <span className="text-emerald-400 font-bold">balaji@ai-workspace</span>
+              <span className="text-emerald-400 font-bold">prakash@ai-workspace</span>
               <span className="text-muted-foreground">:</span>
               <span className="text-indigo-400">~</span>
               <span className="text-foreground">$</span> neofetch
@@ -70,7 +70,7 @@ export default function About() {
               </div>
               
               <div className="space-y-1">
-                <p><span className="text-indigo-400 font-semibold">User:</span> Balaji</p>
+                <p><span className="text-indigo-400 font-semibold">User:</span> Prakash</p>
                 <p><span className="text-indigo-400 font-semibold">Degree:</span> B.Tech in AI & ML</p>
                 <p><span className="text-indigo-400 font-semibold">Graduation:</span> Expected May 2027</p>
                 <p><span className="text-indigo-400 font-semibold">Focus:</span> LLMs, RAG, AI Agents</p>
@@ -82,7 +82,7 @@ export default function About() {
             </div>
             
             <div className="pt-2">
-              <span className="text-emerald-400 font-bold">balaji@ai-workspace</span>
+              <span className="text-emerald-400 font-bold">prakash@ai-workspace</span>
               <span className="text-muted-foreground">:</span>
               <span className="text-indigo-400">~</span>
               <span className="text-foreground">$</span> <span className="animate-pulse bg-foreground w-2 h-4 inline-block align-middle"></span>

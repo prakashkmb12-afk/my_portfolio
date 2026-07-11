@@ -110,8 +110,8 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="font-semibold text-sm">Direct Email</h4>
-                <a href="mailto:balaji@example.com" className="text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors mt-0.5 block">
-                  balaji@example.com
+                <a href="mailto:prakash@example.com" className="text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors mt-0.5 block">
+                  prakash@example.com
                 </a>
               </div>
             </div>
@@ -128,7 +128,7 @@ export default function Contact() {
               <div>
                 <h4 className="font-semibold text-sm">LinkedIn</h4>
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors mt-0.5 block">
-                  linkedin.com/in/balaji
+                  linkedin.com/in/prakash
                 </a>
               </div>
             </div>
@@ -265,7 +265,7 @@ export default function Contact() {
                           ? "border-rose-500/50 focus:ring-rose-500/50" 
                           : "border-border focus:border-primary/50 focus:ring-primary/50"
                       }`}
-                      placeholder="Hi Balaji, I'd like to chat about a role at..."
+                      placeholder="Hi Prakash, I'd like to chat about a role at..."
                     />
                     {errors.message && (
                       <p className="text-[10px] text-rose-400 flex items-center gap-1">

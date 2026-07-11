@@ -3,7 +3,6 @@ import InteractiveBackground from "src/components/visual/InteractiveBackground";
 import Hero from "src/components/sections/Hero";
 import About from "src/components/sections/About";
 import Skills from "src/components/sections/Skills";
-import Timeline from "src/components/sections/Timeline";
 import Projects from "src/components/sections/Projects";
 import StatsDashboard from "src/components/sections/StatsDashboard";
 import Contact from "src/components/sections/Contact";
@@ -28,9 +27,6 @@ export default function Home() {
 
         {/* Technical Skills Section */}
         <Skills />
-
-        {/* Journey Timeline Section */}
-        <Timeline />
 
         {/* Live Coding Stats Dashboard */}
         <StatsDashboard />

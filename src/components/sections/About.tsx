@@ -1,7 +1,10 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { User, Brain, Cpu, Code2, BookOpen, Terminal, CheckCircle2 } from "lucide-react";
+import { 
+  User, Brain, Cpu, Code2, BookOpen, Terminal, 
+  GraduationCap, Briefcase 
+} from "lucide-react";
 
 export default function About() {
   const containerVariants: Variants = {
@@ -25,34 +28,34 @@ export default function About() {
   };
 
   const facts = [
-    { emoji: "🎓", label: "Degree", text: "Final-year B.Tech – Artificial Intelligence & Machine Learning" },
-    { emoji: "💼", label: "Role", text: "Aspiring AI/ML Engineer" },
-    { emoji: "🧠", label: "Focus", text: "Interested in LLMs, RAG, AI Agents & Generative AI" },
-    { emoji: "🐍", label: "Language", text: "Primary Language: Python" },
-    { emoji: "🚀", label: "Building", text: "Currently Building Production-Ready AI Applications" },
-    { emoji: "🌱", label: "Learning", text: "Always Learning & Exploring Emerging AI Technologies" },
+    { icon: <GraduationCap size={16} />, label: "Education", text: "Final-year B.Tech – Artificial Intelligence & Machine Learning" },
+    { icon: <Briefcase size={16} />, label: "Role", text: "Aspiring AI/ML Engineer" },
+    { icon: <Brain size={16} />, label: "Skills", text: "LLMs, RAG, AI Agents & Generative AI" },
+    { icon: <Code2 size={16} />, label: "Lang/Tech", text: "Primary Language: Python" },
+    { icon: <Cpu size={16} />, label: "Projects", text: "Building Production-Ready AI Applications" },
+    { icon: <BookOpen size={16} />, label: "Focus", text: "Exploring Emerging AI Technologies" },
   ];
 
   const highlights = [
     {
-      icon: <Brain className="text-indigo-400" size={18} />,
+      icon: <Brain size={18} />,
       title: "AI & Machine Learning",
-      desc: "Designing intelligent systems using Machine Learning, Deep Learning, Computer Vision, NLP, and Generative AI.",
+      desc: "Designing intelligent solutions using Machine Learning, Deep Learning, Computer Vision, NLP, and Generative AI.",
     },
     {
-      icon: <Cpu className="text-purple-400" size={18} />,
+      icon: <Cpu size={18} />,
       title: "LLM & AI Agents",
-      desc: "Building production-ready applications using Large Language Models, RAG pipelines, Vector Databases, and AI Agents.",
+      desc: "Building AI applications with LLMs, RAG, Vector Databases, AI Agents, and modern AI frameworks.",
     },
     {
-      icon: <Code2 className="text-emerald-400" size={18} />,
+      icon: <Code2 size={18} />,
       title: "Software Engineering",
-      desc: "Developing scalable backend services and AI applications using Python, FastAPI, REST APIs, and modern development practices.",
+      desc: "Developing scalable AI applications using Python, FastAPI, REST APIs, and clean software architecture.",
     },
     {
-      icon: <BookOpen className="text-amber-400" size={18} />,
+      icon: <BookOpen size={18} />,
       title: "Continuous Learning",
-      desc: "Actively exploring emerging AI technologies, open-source frameworks, and industry best practices to grow as an AI Engineer.",
+      desc: "Exploring emerging AI technologies, open-source frameworks, and production-ready AI development.",
     },
   ];
 
@@ -81,19 +84,13 @@ export default function About() {
           
           <div className="text-sm sm:text-base text-muted-foreground leading-relaxed space-y-4">
             <p>
-              I'm Prakash, a Final-year B.Tech student in Artificial Intelligence and Machine Learning with a strong passion for designing intelligent systems that solve real-world challenges.
+              I'm Prakash, a Final-year B.Tech student in Artificial Intelligence and Machine Learning passionate about building intelligent AI solutions for real-world problems.
             </p>
             <p>
-              My primary interests lie in Machine Learning, Deep Learning, Computer Vision, Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), and AI Agents. I enjoy transforming complex AI concepts into practical, production-ready applications that deliver meaningful impact.
+              My interests include Machine Learning, Deep Learning, Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), AI Agents, and Computer Vision. I enjoy developing scalable, production-ready AI applications by combining strong software engineering principles with modern AI technologies.
             </p>
             <p>
-              Over the course of my learning journey, I have built projects ranging from predictive machine learning models to end-to-end AI applications powered by LLMs, FastAPI, vector databases, and modern AI frameworks. Each project has strengthened my understanding of designing scalable, efficient, and user-focused AI systems.
-            </p>
-            <p>
-              I believe that successful AI products require more than accurate models—they require thoughtful system design, clean software engineering, and a focus on solving real business problems. This mindset drives me to continuously learn emerging technologies, experiment with new ideas, and build solutions that bridge research and real-world applications.
-            </p>
-            <p>
-              As an aspiring AI/ML Engineer, my goal is to contribute to innovative teams, develop intelligent software, and create AI systems that make technology more useful, accessible, and impactful.
+              I'm continuously learning, building innovative projects, and exploring emerging AI advancements to grow as a professional AI/ML Engineer.
             </p>
           </div>
         </div>
@@ -118,10 +115,12 @@ export default function About() {
           <ul className="space-y-4">
             {facts.map((fact, index) => (
               <li key={index} className="flex gap-3.5 items-start text-xs sm:text-sm">
-                <span className="text-base select-none mt-0.5">{fact.emoji}</span>
+                <div className="p-1.5 rounded-lg bg-primary/5 text-primary shrink-0 mt-0.5">
+                  {fact.icon}
+                </div>
                 <div className="leading-relaxed">
-                  <span className="text-foreground font-semibold block">{fact.label}</span>
-                  <span className="text-muted-foreground">{fact.text}</span>
+                  <span className="text-xs uppercase tracking-wider text-muted-foreground/80 font-bold block mb-0.5">{fact.label}</span>
+                  <span className="text-foreground/90 font-semibold">{fact.text}</span>
                 </div>
               </li>
             ))}
@@ -141,22 +140,18 @@ export default function About() {
           <motion.div
             key={idx}
             variants={itemVariants}
-            className="glass-card p-5 hover:border-primary/20 hover:scale-[1.01] transition-all duration-300 flex flex-col justify-between"
+            className="glass-card p-6 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_10px_30px_-10px_rgba(99,102,241,0.2)] transition-all duration-300 flex flex-col justify-between group cursor-pointer"
           >
-            <div className="space-y-3.5">
-              <div className="p-2 rounded-lg bg-primary/5 text-primary self-start inline-block">
+            <div className="space-y-4">
+              <div className="p-2.5 rounded-lg bg-primary/5 text-muted-foreground group-hover:text-primary group-hover:bg-primary/10 transition-all duration-300 self-start inline-block">
                 {item.icon}
               </div>
-              <h4 className="font-bold text-sm md:text-base text-foreground">
+              <h4 className="font-bold text-sm md:text-base text-foreground group-hover:text-primary transition-colors duration-300">
                 {item.title}
               </h4>
               <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
                 {item.desc}
               </p>
-            </div>
-            <div className="flex items-center gap-1.5 text-[10px] text-primary/80 font-mono mt-4 pt-3 border-t border-border/40">
-              <CheckCircle2 size={10} className="text-primary" />
-              <span>Core competency</span>
             </div>
           </motion.div>
         ))}

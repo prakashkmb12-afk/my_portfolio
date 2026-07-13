@@ -1,169 +1,166 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { User, Terminal, Cpu, FileText, Code2, GraduationCap } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+import { User, Brain, Cpu, Code2, BookOpen, Terminal, CheckCircle2 } from "lucide-react";
 
 export default function About() {
-  const textVariants = {
-    hidden: { opacity: 0, y: 15 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
   };
 
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 100, damping: 20 },
+    },
+  };
+
+  const facts = [
+    { emoji: "🎓", label: "Degree", text: "Final-year B.Tech – Artificial Intelligence & Machine Learning" },
+    { emoji: "💼", label: "Role", text: "Aspiring AI/ML Engineer" },
+    { emoji: "🧠", label: "Focus", text: "Interested in LLMs, RAG, AI Agents & Generative AI" },
+    { emoji: "🐍", label: "Language", text: "Primary Language: Python" },
+    { emoji: "🚀", label: "Building", text: "Currently Building Production-Ready AI Applications" },
+    { emoji: "🌱", label: "Learning", text: "Always Learning & Exploring Emerging AI Technologies" },
+  ];
+
+  const highlights = [
+    {
+      icon: <Brain className="text-indigo-400" size={18} />,
+      title: "AI & Machine Learning",
+      desc: "Designing intelligent systems using Machine Learning, Deep Learning, Computer Vision, NLP, and Generative AI.",
+    },
+    {
+      icon: <Cpu className="text-purple-400" size={18} />,
+      title: "LLM & AI Agents",
+      desc: "Building production-ready applications using Large Language Models, RAG pipelines, Vector Databases, and AI Agents.",
+    },
+    {
+      icon: <Code2 className="text-emerald-400" size={18} />,
+      title: "Software Engineering",
+      desc: "Developing scalable backend services and AI applications using Python, FastAPI, REST APIs, and modern development practices.",
+    },
+    {
+      icon: <BookOpen className="text-amber-400" size={18} />,
+      title: "Continuous Learning",
+      desc: "Actively exploring emerging AI technologies, open-source frameworks, and industry best practices to grow as an AI Engineer.",
+    },
+  ];
+
   return (
-    <section id="about" className="py-20 px-4 md:px-8 max-w-6xl mx-auto">
+    <section id="about" className="py-20 px-4 md:px-8 max-w-6xl mx-auto space-y-16">
       {/* Section Header */}
-      <div className="flex items-center gap-3 mb-12">
+      <div className="flex items-center gap-3">
         <div className="p-2.5 rounded-xl bg-primary/10 text-primary">
           <User size={20} />
         </div>
         <div>
           <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">About Me</h2>
-          <p className="text-sm text-muted-foreground">Academic background and engineering philosophy</p>
+          <p className="text-sm text-muted-foreground">My values, core focus, and background</p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left: Terminal Mockup */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ type: "spring", stiffness: 80, damping: 15 }}
-          className="lg:col-span-5 w-full glass-card overflow-hidden shadow-xl"
-        >
-          {/* Terminal Title Bar */}
-          <div className="flex items-center justify-between px-4 py-3 bg-muted/50 border-b border-border/80">
-            <div className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
-              <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
-              <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
-            </div>
-            <div className="flex items-center gap-1.5 text-xs text-muted-foreground font-mono">
-              <Terminal size={12} />
-              <span>prakash@ai-workspace:~</span>
-            </div>
-            <div className="w-10"></div> {/* Spacer to center title */}
-          </div>
-
-          {/* Terminal Body */}
-          <div className="p-4 md:p-6 font-mono text-xs md:text-sm leading-relaxed space-y-4 text-foreground/90 overflow-x-auto">
-            <div>
-              <span className="text-emerald-400 font-bold">prakash@ai-workspace</span>
-              <span className="text-muted-foreground">:</span>
-              <span className="text-indigo-400">~</span>
-              <span className="text-foreground">$</span> neofetch
-            </div>
-
-            <div className="flex gap-4 items-start whitespace-pre">
-              {/* ASCII Art of Brain/Graph */}
-              <div className="text-primary font-bold hidden sm:block text-[10px] leading-3 select-none">
-{`   _---~~---_
-  /   /|  \\   \\
- /   / |   \\   \\
-|   /  |    \\   |
-|  /   |     \\  |
-|  \\   |     /  |
-|   \\  |    /   |
- \\   \\ |   /   /
-  \\   \\|  /   /
-   \`---~~---\'`}
-              </div>
-              
-              <div className="space-y-1">
-                <p><span className="text-indigo-400 font-semibold">User:</span> Prakash</p>
-                <p><span className="text-indigo-400 font-semibold">Degree:</span> B.Tech in AI & ML</p>
-                <p><span className="text-indigo-400 font-semibold">Graduation:</span> Expected May 2027</p>
-                <p><span className="text-indigo-400 font-semibold">Focus:</span> LLMs, RAG, AI Agents</p>
-                <p><span className="text-indigo-400 font-semibold">Core Stack:</span> PyTorch, Python, Docker</p>
-                <p><span className="text-indigo-400 font-semibold">Libraries:</span> LangChain, HuggingFace</p>
-                <p><span className="text-indigo-400 font-semibold">Shell:</span> bash / zsh</p>
-                <p><span className="text-indigo-400 font-semibold">Status:</span> Seeking AI/ML Intern/Full-time Roles</p>
-              </div>
-            </div>
-            
-            <div className="pt-2">
-              <span className="text-emerald-400 font-bold">prakash@ai-workspace</span>
-              <span className="text-muted-foreground">:</span>
-              <span className="text-indigo-400">~</span>
-              <span className="text-foreground">$</span> <span className="animate-pulse bg-foreground w-2 h-4 inline-block align-middle"></span>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Right: Narrative Description */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        {/* Left Column: Biography */}
         <div className="lg:col-span-7 space-y-6">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={textVariants}
-            className="space-y-4"
-          >
-            <h3 className="text-lg md:text-xl font-bold flex items-center gap-2">
-              <GraduationCap className="text-primary" size={18} />
-              <span>Academic Foundation in Artificial Intelligence</span>
+          <div className="space-y-2">
+            <span className="text-xs font-semibold text-primary uppercase tracking-wider">Background Overview</span>
+            <h3 className="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-500">
+              Building AI Solutions That Solve Real-World Problems
             </h3>
-            <p className="text-muted-foreground leading-relaxed">
-              As a final-year B.Tech student in Artificial Intelligence and Machine Learning, I have spent the last few years bridging the gap between theoretical math and production software engineering. I don't just build wrappers; I focus on understanding the underlying transformer architectures, vector similarity mathematics, and model optimization.
+          </div>
+          
+          <div className="text-sm sm:text-base text-muted-foreground leading-relaxed space-y-4">
+            <p>
+              I'm Prakash, a Final-year B.Tech student in Artificial Intelligence and Machine Learning with a strong passion for designing intelligent systems that solve real-world challenges.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              My engineering philosophy revolves around building **deterministic outcomes from non-deterministic models**. I specialize in developing agents using cognitive loops (like ReAct or Plan-and-Solve) and architecting robust Retrieval-Augmented Generation (RAG) systems that resolve hallucination problems and handle complex business logic.
+            <p>
+              My primary interests lie in Machine Learning, Deep Learning, Computer Vision, Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), and AI Agents. I enjoy transforming complex AI concepts into practical, production-ready applications that deliver meaningful impact.
             </p>
-          </motion.div>
+            <p>
+              Over the course of my learning journey, I have built projects ranging from predictive machine learning models to end-to-end AI applications powered by LLMs, FastAPI, vector databases, and modern AI frameworks. Each project has strengthened my understanding of designing scalable, efficient, and user-focused AI systems.
+            </p>
+            <p>
+              I believe that successful AI products require more than accurate models—they require thoughtful system design, clean software engineering, and a focus on solving real business problems. This mindset drives me to continuously learn emerging technologies, experiment with new ideas, and build solutions that bridge research and real-world applications.
+            </p>
+            <p>
+              As an aspiring AI/ML Engineer, my goal is to contribute to innovative teams, develop intelligent software, and create AI systems that make technology more useful, accessible, and impactful.
+            </p>
+          </div>
+        </div>
 
-          {/* Feature Highlights Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="p-4 rounded-xl border border-border bg-card/30 flex gap-3 items-start"
-            >
-              <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-400 mt-0.5">
-                <Cpu size={16} />
-              </div>
-              <div>
-                <h4 className="font-semibold text-sm">System Architect</h4>
-                <p className="text-xs text-muted-foreground mt-1">Designing agentic workflows, multi-vector retrieval pipelines, and graph-based models.</p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="p-4 rounded-xl border border-border bg-card/30 flex gap-3 items-start"
-            >
-              <div className="p-2 rounded-lg bg-purple-500/10 text-purple-400 mt-0.5">
-                <Code2 size={16} />
-              </div>
-              <div>
-                <h4 className="font-semibold text-sm">Clean MLOps</h4>
-                <p className="text-xs text-muted-foreground mt-1">Containerizing models with Docker, tracking experiments with MLflow, and deploying via APIs.</p>
-              </div>
-            </motion.div>
+        {/* Right Column: Quick Facts Dashboard */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", stiffness: 80, damping: 15 }}
+          className="lg:col-span-5 w-full glass-card p-6 shadow-xl"
+        >
+          <div className="flex items-center gap-2 border-b border-border/60 pb-4 mb-6">
+            <div className="p-1.5 rounded-lg bg-primary/10 text-primary">
+              <Terminal size={14} />
+            </div>
+            <span className="font-mono text-xs font-bold uppercase tracking-wider text-foreground">
+              system_specs.config
+            </span>
           </div>
 
-          {/* Action Call */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="pt-6 flex flex-col sm:flex-row gap-4"
-          >
-            <a
-              href="/resume.pdf"
-              download
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity shadow-md shadow-primary/10 cursor-pointer"
-            >
-              <FileText size={16} />
-              <span>Download Full CV</span>
-            </a>
-          </motion.div>
-        </div>
+          <ul className="space-y-4">
+            {facts.map((fact, index) => (
+              <li key={index} className="flex gap-3.5 items-start text-xs sm:text-sm">
+                <span className="text-base select-none mt-0.5">{fact.emoji}</span>
+                <div className="leading-relaxed">
+                  <span className="text-foreground font-semibold block">{fact.label}</span>
+                  <span className="text-muted-foreground">{fact.text}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
       </div>
+
+      {/* Bottom Grid: Focus Highlight Cards */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-6"
+      >
+        {highlights.map((item, idx) => (
+          <motion.div
+            key={idx}
+            variants={itemVariants}
+            className="glass-card p-5 hover:border-primary/20 hover:scale-[1.01] transition-all duration-300 flex flex-col justify-between"
+          >
+            <div className="space-y-3.5">
+              <div className="p-2 rounded-lg bg-primary/5 text-primary self-start inline-block">
+                {item.icon}
+              </div>
+              <h4 className="font-bold text-sm md:text-base text-foreground">
+                {item.title}
+              </h4>
+              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+            <div className="flex items-center gap-1.5 text-[10px] text-primary/80 font-mono mt-4 pt-3 border-t border-border/40">
+              <CheckCircle2 size={10} className="text-primary" />
+              <span>Core competency</span>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   );
 }

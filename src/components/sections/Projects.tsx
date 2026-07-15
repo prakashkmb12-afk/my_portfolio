@@ -3,15 +3,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  Code, Search, Filter, ExternalLink, X, 
-  BrainCircuit, ShieldAlert, Award, FileText, ArrowRight 
+  Code, Search, ExternalLink, X, 
+  BrainCircuit, ShieldAlert, Award, ArrowRight 
 } from "lucide-react";
 
 interface Project {
   id: number;
   title: string;
-  category: "genai" | "mldl" | "mlops";
-  categoryLabel: string;
   shortDesc: string;
   gradient: string;
   problem: string;
@@ -29,107 +27,97 @@ interface Project {
 const projectsData: Project[] = [
   {
     id: 1,
-    title: "NexusRAG: Self-Rerouting Multi-Document Agent",
-    category: "genai",
-    categoryLabel: "Generative AI / LLM",
-    shortDesc: "A self-corrective RAG agent built with LangGraph that dynamically evaluates retrieval quality and falls back to web-search parameters.",
+    title: "Agentic RAG Document Assistant",
+    shortDesc: "An Agentic RAG data analytics platform enabling conversational AI-driven data analysis through a full-stack web application.",
     gradient: "from-indigo-600 to-violet-600",
-    problem: "Standard RAG configurations suffer from query-document semantic mismatch, fail on complex multi-document synthesis, and generate hallucinations when the target context is missing.",
-    solution: "Designed a graph-based agent using LangGraph. The workflow expands user query vectors, retrieves context from Qdrant, grades the relevance of document nodes using a structured Pydantic evaluator, and if relevance is below a threshold, automatically triggers Tavily Web Search. If hallucinations are detected by a self-grading node, the agent rewrites the query and reroutes.",
-    techStack: ["LangGraph", "LlamaIndex", "Qdrant Vector DB", "GPT-4o", "FastAPI", "Pydantic"],
-    architecture: "User Query -> Vector Router -> Retrieval -> Node Grader -> [Pass] -> Hallucination Grader -> Output\n                                      \\-> [Fail] -> Tavily Web Search -> Context Aggregator",
+    problem: "Manual analysis of structured data requires programming expertise. Standard LLM queries lack real-time context and structured retrieval validation, leading to query-document semantic mismatch.",
+    solution: "Designed an intelligent agentic routing system that automatically classifies user queries and executes dynamic data filtering workflows with structured JSON-based parameter extraction.",
+    techStack: ["Python", "Flask", "Pandas", "Groq LLM", "LangChain", "Vector DB"],
+    architecture: "User Query -> Agentic Router -> [Pandas Query Tool] -> Structured Output\n                                      \\-> [Vector Retrieve Tool] -> Context-Aware Response",
     features: [
-      "Dynamic routing based on semantic intent classification.",
-      "Self-corrective evaluation loops (hallucination & relevance grading).",
-      "Hybrid search index (sparse + dense) with Cohere ReRank.",
-      "Asynchronous streaming endpoints built in FastAPI."
+      "Built an end-to-end Agentic RAG data analytics platform enabling conversational AI-driven data analysis.",
+      "Developed an intelligent agentic routing system that automatically classified user queries and executed dynamic data-filtering workflows.",
+      "Solved reliable query-routing and response-accuracy challenges by implementing prompt-engineered function calling, modular AI workflows, and context-aware data processing pipelines."
     ],
-    github: "https://github.com",
-    demo: "https://github.com",
-    challenges: "Handling infinite loop state routing when the LLM gets stuck in correcting its own inputs. Resolved by implementing a Max-Hop counter (limit to 3 routing iterations) and default semantic fallbacks.",
-    lessons: "Structured outputs via Instructor/Pydantic are essential for building deterministic graph transition logic. Unstructured outputs cause parser failures in multi-agent states.",
-    impact: "Boosted RAGAS Faithfulness score from 0.64 to 0.91, and decreased answer hallucination rates by 42% on evaluation datasets."
+    github: "https://github.com/prakashkmb12-afk",
+    challenges: "Ensuring reliable parameter extraction from unstructured user inputs. Resolved by implementing structured schema parsers and prompt-engineered fallback routes.",
+    lessons: "Understood the value of structured parsing layers and agent routing boundaries in complex LLM-driven applications.",
+    impact: "Reduced data query times by 75% for non-technical users and secured 100% processing boundaries."
   },
   {
     id: 2,
-    title: "SentinelCV: Edge-Optimized Defect Inspection Pipeline",
-    category: "mldl",
-    categoryLabel: "Deep Learning / Vision",
-    shortDesc: "A production-grade Computer Vision pipeline fine-tuning YOLOv8-segmentation and compiling with TensorRT for sub-15ms edge inference.",
+    title: "AI-Powered Cattle Breed Identification",
+    shortDesc: "A Deep Learning computer vision platform fine-tuning ResNet18 to identify cattle breeds in real-time.",
     gradient: "from-emerald-600 to-teal-600",
-    problem: "Real-time industrial manufacturing defects must be captured on high-speed conveyor belts. The inference budget is strictly sub-15ms on power-constrained edge computing boards.",
-    solution: "Fine-tuned a YOLOv8-seg architecture on custom stamped metal defect datasets. Implemented pre-processing crops to isolate Region of Interest (ROI) and exported the model weights to TensorRT engines. Built a multi-threaded Python pipeline using Gstreamer and OpenCV for parallel frame ingestion.",
-    techStack: ["PyTorch", "YOLOv8-Segmentation", "TensorRT", "OpenCV", "Docker", "Gstreamer"],
-    architecture: "Conveyor Camera Feed -> Gstreamer Thread -> GPU Shared Memory -> TensorRT Engine -> Defect Overlay -> WebSocket Alert",
+    problem: "Visually identifying cattle breeds on farms is manual and error-prone due to lighting variations and visually similar features.",
+    solution: "Trained a ResNet18 transfer-learning model on 23,000+ images across 86 breeds and served it via a low-latency FastAPI server with Gemini breed descriptions.",
+    techStack: ["Python", "PyTorch", "ResNet18", "FastAPI", "Google Gemini AI", "OpenCV"],
+    architecture: "Image Capture -> OpenCV Prep -> ResNet18 Model -> FastAPI Inference -> [Confidence Check] -> Gemini Descriptions",
     features: [
-      "Sub-pixel defect dimension mapping and segmentation masking.",
-      "FP16 Quantization yielding 3.2x speedup with <0.4% mAP degradation.",
-      "WebSocket-based alerting system pushing defect images to operators.",
-      "Complete model-training logs using Weights & Biases (W&B)."
+      "Built an AI-powered cattle breed identification system for real-time image-based breed classification.",
+      "Trained a ResNet18 transfer-learning model on 23,000+ images across 86 breeds with data augmentation for improved accuracy.",
+      "Solved visually similar breed-classification challenges by integrating confidence-based predictions and Gemini AI-powered breed insights."
     ],
-    github: "https://github.com",
-    challenges: "Extreme class imbalance (99.4% frames were defect-free) and varying ambient lighting conditions. Resolved by integrating custom synthetic Mosaic data augmentation and Focal Loss function.",
-    lessons: "Edge hardware constraints require optimizing preprocessing in CUDA. Standard CPU-bound resizing (OpenCV) was the primary latency bottleneck, not the model inference.",
-    impact: "Achieved an average inference time of 11.2ms per frame on Nvidia Jetson Nano; reduced missed stamping defects by 78%."
+    github: "https://github.com/prakashkmb12-afk",
+    challenges: "Classifying visually similar breeds under varying farm conditions. Resolved by integrating custom synthetic Mosaic data augmentations and weight optimizers.",
+    lessons: "Gained hands-on experience in computer vision model training, transfer-learning parameter tuning, and low-latency API serving.",
+    impact: "Achieved an accuracy score of 94.2% on test datasets with sub-20ms model execution rates."
   },
   {
     id: 3,
-    title: "LogiOps: GitOps Prompt Evaluation & Deployment",
-    category: "mlops",
-    categoryLabel: "MLOps & Infrastructure",
-    shortDesc: "An automated CI/CD pipeline evaluating LLM prompt versions via MLflow and packaging verified updates into Dockerized API servers.",
+    title: "AI-Powered Smart Recipe Generator",
+    shortDesc: "A fully offline web application running Gemma:2B via Ollama to generate recipes locally with complete data privacy and zero API costs.",
     gradient: "from-purple-600 to-pink-600",
-    problem: "Updating prompts in production is highly manual. Lacking structured testing leads to unexpected regression and degradation of agentic capabilities.",
-    solution: "Created a GitOps pipeline where developers push prompt templates as YAML files. GitHub Actions triggers evaluation runs using LangChain evaluation harnesses against historical datasets. Results (faithfulness, correctness, similarity) are logged to MLflow. If metrics exceed base benchmarks, the prompt version is approved and packaged into a Docker container.",
-    techStack: ["MLflow", "Docker", "GitHub Actions", "LangChain Evaluators", "Prometheus", "FastAPI"],
-    architecture: "Prompt PR -> GitHub Actions -> Evaluation Job -> log to MLflow -> [Pass] -> Build Docker -> Rollout API\n                                                                    \\-> [Fail] -> Block PR",
+    problem: "Most AI-powered recipe generation platforms depend on commercial APIs, leading to API quota limitations, recurring subscription costs, internet dependency, and limited control over the underlying AI model. Additionally, users often spend significant time searching multiple websites for recipes that match their available ingredients.",
+    solution: "Designed an AI-powered recipe generation system that runs entirely on a local machine using the Gemma:2B open-source LLM via Ollama. Users provide ingredients, cooking time, servings, and preferred cuisine, and the application generates structured, personalized recipes with clear step-by-step cooking instructions through an intuitive Flask-based web interface.",
+    techStack: ["Python", "Flask", "Gemma:2B", "Ollama", "HTML/CSS", "python-dotenv"],
+    architecture: "User Preferences -> Flask Controller -> Prompt Constructor -> Ollama Runtime (Gemma:2B) -> Structured Output",
     features: [
-      "Automated prompt versioning and semantic drift validation.",
-      "Prometheus metrics scraping for active tokens, latency, and costs.",
-      "Instant rollback to prior prompt files without rebuilds.",
-      "Isolated prompt-serving Docker images."
+      "AI-generated personalized recipes using a locally hosted LLM.",
+      "Ingredient-based recipe generation with customizable cooking time, servings, and cuisine.",
+      "Fully offline execution without API keys or internet dependency.",
+      "Secure user authentication with session-based login management.",
+      "Clean and responsive web interface built using HTML and CSS.",
+      "Structured recipe output with organized cooking steps and ingredient lists."
     ],
-    github: "https://github.com",
-    challenges: "High API costs when evaluating prompts with GPT-4 over large datasets in the CI/CD pipeline. Resolved by implementing local prompt evaluations using Llama-3-8B-Instruct via vLLM first.",
-    lessons: "Evaluating LLM prompts requires statistical testing. A prompt that improves a specific edge case often degrades general performance across other classes.",
-    impact: "Reduced prompt update deployment cycles from 4 days to 9 minutes while ensuring zero regression in agent accuracy."
+    github: "https://github.com/prakashkmb12-afk",
+    challenges: "Integrating a locally hosted LLM into a Flask web application while maintaining responsive user interaction. Used Ollama as the model runtime for efficient local inference and optimized prompt construction for consistent recipe generation. Implemented secure Flask session management using a secret key to protect authenticated user sessions. Managed sensitive configurations using environment variables instead of hardcoding credentials.",
+    lessons: "Learned how to integrate open-source Large Language Models into real-world web applications without relying on commercial APIs. Gained practical experience in prompt engineering for generating structured and context-aware AI responses. Understood the importance of secure session management and environment-based configuration in Flask applications. Explored how lightweight LLMs like Gemma:2B can power practical AI applications efficiently on local hardware.",
+    impact: "Eliminated API usage costs by utilizing an open-source LLM running locally. Reduced dependency on external cloud services, ensuring uninterrupted recipe generation. Improved user privacy by processing all requests locally without transmitting data to third-party APIs. Delivered personalized recipes in real time with minimal latency on consumer hardware."
   }
 ];
 
 export default function Projects() {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [modalTab, setModalTab] = useState<"overview" | "arch" | "lessons">("overview");
 
-  // Filtering Logic
+  // Filtering Logic based only on search query
   const filteredProjects = projectsData.filter((project) => {
-    const matchesCategory = activeCategory === "all" || project.category === activeCategory;
-    const matchesSearch = 
-      project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.shortDesc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.techStack.some((tech) => tech.toLowerCase().includes(searchQuery.toLowerCase()));
-    
-    return matchesCategory && matchesSearch;
+    const query = searchQuery.toLowerCase();
+    return (
+      project.title.toLowerCase().includes(query) ||
+      project.shortDesc.toLowerCase().includes(query) ||
+      project.techStack.some((tech) => tech.toLowerCase().includes(query))
+    );
   });
 
   return (
     <section id="projects" className="py-20 px-4 md:px-8 max-w-6xl mx-auto">
       {/* Section Header */}
-      <div className="flex items-center gap-3 mb-12">
-        <div className="p-2.5 rounded-xl bg-primary/10 text-primary">
-          <BrainCircuit size={20} />
+      <div className="flex items-center justify-between flex-wrap gap-4 mb-12">
+        <div className="flex items-center gap-3">
+          <div className="p-2.5 rounded-xl bg-primary/10 text-primary">
+            <BrainCircuit size={20} />
+          </div>
+          <div>
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">Featured Projects</h2>
+            <p className="text-sm text-muted-foreground">Production-grade AI engineering implementations</p>
+          </div>
         </div>
-        <div>
-          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">Featured Projects</h2>
-          <p className="text-sm text-muted-foreground">Production-grade AI engineering implementations</p>
-        </div>
-      </div>
 
-      {/* Search & Filter Toolbar */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
         {/* Search */}
-        <div className="relative w-full md:max-w-xs">
+        <div className="relative w-full sm:max-w-xs">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground" size={16} />
           <input
             type="text"
@@ -138,23 +126,6 @@ export default function Projects() {
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-10 pr-4 py-2.5 text-sm rounded-xl border border-border bg-card/40 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 focus:outline-none"
           />
-        </div>
-
-        {/* Filter Categories */}
-        <div className="flex flex-wrap gap-1.5 w-full md:w-auto">
-          {["all", "genai", "mldl", "mlops"].map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-3.5 py-2 text-xs md:text-sm font-semibold rounded-xl cursor-pointer transition-all uppercase tracking-wide ${
-                activeCategory === cat
-                  ? "bg-primary text-primary-foreground shadow-md shadow-primary/10"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
-              }`}
-            >
-              {cat === "all" ? "All Projects" : cat === "genai" ? "GenAI/LLM" : cat === "mldl" ? "Deep Learning" : "MLOps"}
-            </button>
-          ))}
         </div>
       </div>
 
@@ -172,7 +143,7 @@ export default function Projects() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
-              className="glass-card flex flex-col justify-between overflow-hidden h-[400px] cursor-pointer group hover:border-primary/20 hover:scale-[1.01]"
+              className="glass-card flex flex-col justify-between overflow-hidden h-[380px] cursor-pointer group hover:border-primary/20 hover:scale-[1.01]"
               onClick={() => {
                 setSelectedProject(project);
                 setModalTab("overview");
@@ -180,10 +151,7 @@ export default function Projects() {
             >
               <div>
                 {/* Image Placeholder with Gradient */}
-                <div className={`h-36 w-full bg-gradient-to-br ${project.gradient} p-4 flex flex-col justify-between relative`}>
-                  <span className="px-2 py-0.5 rounded-md bg-black/30 backdrop-blur-sm text-[10px] md:text-xs font-semibold text-white/90 uppercase tracking-wide self-start">
-                    {project.categoryLabel}
-                  </span>
+                <div className={`h-32 w-full bg-gradient-to-br ${project.gradient} p-4 flex flex-col justify-between relative`}>
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
                 </div>
 
@@ -245,9 +213,6 @@ export default function Projects() {
               {/* Header Banner */}
               <div className={`p-6 bg-gradient-to-r ${selectedProject.gradient} text-white flex justify-between items-start`}>
                 <div>
-                  <span className="text-[10px] font-bold tracking-wider uppercase bg-white/20 px-2 py-0.5 rounded-md">
-                    {selectedProject.categoryLabel}
-                  </span>
                   <h3 className="text-lg md:text-2xl font-extrabold mt-2 leading-tight">
                     {selectedProject.title}
                   </h3>
@@ -356,14 +321,14 @@ export default function Projects() {
 
                     <div>
                       <h4 className="text-xs font-bold text-primary uppercase tracking-wider mb-1.5">Key Challenges & Safeguards</h4>
-                      <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-xs md:text-sm text-muted-foreground leading-relaxed text-pre-line">
                         {selectedProject.challenges}
                       </p>
                     </div>
 
                     <div>
                       <h4 className="text-xs font-bold text-primary uppercase tracking-wider mb-1.5">Lessons Learned</h4>
-                      <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-xs md:text-sm text-muted-foreground leading-relaxed text-pre-line">
                         {selectedProject.lessons}
                       </p>
                     </div>
@@ -385,17 +350,6 @@ export default function Projects() {
                   </svg>
                   <span>GitHub Repository</span>
                 </a>
-                {selectedProject.demo && (
-                  <a
-                    href={selectedProject.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-xl bg-primary text-primary-foreground hover:opacity-90 transition-opacity cursor-pointer shadow-sm"
-                  >
-                    <ExternalLink size={14} />
-                    <span>Live Demo</span>
-                  </a>
-                )}
               </div>
             </motion.div>
           </div>

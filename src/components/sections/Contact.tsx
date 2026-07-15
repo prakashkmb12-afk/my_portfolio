@@ -110,8 +110,8 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="font-semibold text-sm">Direct Email</h4>
-                <a href="mailto:prakash@example.com" className="text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors mt-0.5 block">
-                  prakash@example.com
+                <a href="mailto:prakashkmp12@gmail.com" className="text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors mt-0.5 block">
+                  prakashkmp12@gmail.com
                 </a>
               </div>
             </div>
@@ -127,8 +127,8 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="font-semibold text-sm">LinkedIn</h4>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors mt-0.5 block">
-                  linkedin.com/in/prakash
+                <a href="https://linkedin.com/in/prakash-k-239846283/" target="_blank" rel="noopener noreferrer" className="text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors mt-0.5 block">
+                  linkedin.com/in/prakash-k-239846283/
                 </a>
               </div>
             </div>
@@ -141,7 +141,7 @@ export default function Contact() {
               <div>
                 <h4 className="font-semibold text-sm">Location</h4>
                 <p className="text-xs md:text-sm text-muted-foreground mt-0.5">
-                  India
+                  Coimbatore, Tamil Nadu, India
                 </p>
               </div>
             </div>
@@ -265,7 +265,7 @@ export default function Contact() {
                           ? "border-rose-500/50 focus:ring-rose-500/50" 
                           : "border-border focus:border-primary/50 focus:ring-primary/50"
                       }`}
-                      placeholder="Hi Prakash, I'd like to chat about a role at..."
+                      placeholder="Hi Prakash K, I'd like to chat about a role at..."
                     />
                     {errors.message && (
                       <p className="text-[10px] text-rose-400 flex items-center gap-1">

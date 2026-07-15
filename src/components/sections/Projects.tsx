@@ -46,22 +46,22 @@ const projectsData: Project[] = [
   },
   {
     id: 2,
-    title: "AI-Powered Cattle Breed Identification",
-    shortDesc: "A Deep Learning computer vision platform fine-tuning ResNet18 to identify cattle breeds in real-time.",
+    title: "AI-Multi-Agent-Blog-Generator",
+    shortDesc: "A Multi-Agent AI blog generator using LangGraph, LangChain, Groq Llama 3, and Streamlit with specialized Researcher and Writer agents.",
     gradient: "from-emerald-600 to-teal-600",
-    problem: "Visually identifying cattle breeds on farms is manual and error-prone due to lighting variations and visually similar features.",
-    solution: "Trained a ResNet18 transfer-learning model on 23,000+ images across 86 breeds and served it via a low-latency FastAPI server with Gemini breed descriptions.",
-    techStack: ["Python", "PyTorch", "ResNet18", "FastAPI", "Google Gemini AI", "OpenCV"],
-    architecture: "Image Capture -> OpenCV Prep -> ResNet18 Model -> FastAPI Inference -> [Confidence Check] -> Gemini Descriptions",
+    problem: "Developing high-quality, factually accurate blog content requires extensive manual research, fact-checking, and structured formatting, making content creation slow and resource-intensive.",
+    solution: "Implemented a modular multi-agent workflow using LangGraph to orchestrate stateful collaboration between specialized Researcher and Writer agents, utilizing DuckDuckGo Search for real-time information retrieval.",
+    techStack: ["Python", "LangGraph", "LangChain", "Llama 3", "Groq API", "Streamlit"],
+    architecture: "User Topic -> Researcher Agent (DuckDuckGo Search) -> Shared State -> Writer Agent (Llama 3) -> Blog Post Output",
     features: [
-      "Built an AI-powered cattle breed identification system for real-time image-based breed classification.",
-      "Trained a ResNet18 transfer-learning model on 23,000+ images across 86 breeds with data augmentation for improved accuracy.",
-      "Solved visually similar breed-classification challenges by integrating confidence-based predictions and Gemini AI-powered breed insights."
+      "Built a Multi-Agent AI blog generator using LangGraph, LangChain, Groq Llama 3, and Streamlit with specialized Researcher and Writer agents.",
+      "Integrated DuckDuckGo Search for real-time information retrieval and Groq Llama 3 to generate structured, context-aware blog posts.",
+      "Implemented stateful agent orchestration using LangGraph's shared state, enabling seamless collaboration between AI agents in a modular workflow."
     ],
     github: "https://github.com/prakashkmb12-afk",
-    challenges: "Classifying visually similar breeds under varying farm conditions. Resolved by integrating custom synthetic Mosaic data augmentations and weight optimizers.",
-    lessons: "Gained hands-on experience in computer vision model training, transfer-learning parameter tuning, and low-latency API serving.",
-    impact: "Achieved an accuracy score of 94.2% on test datasets with sub-20ms model execution rates."
+    challenges: "Orchestrating information transfer and maintaining context state between agents without loops. Resolved by structuring state channels inside LangGraph and defining a strict markdown schema for the final compiled draft.",
+    lessons: "Learned stateful agent orchestration, parallel tool calling frameworks, and using specialized local/API LLMs in specialized agent roles.",
+    impact: "Automated research and drafting steps, generating factually accurate, structured blog drafts in real-time under 15 seconds."
   },
   {
     id: 3,

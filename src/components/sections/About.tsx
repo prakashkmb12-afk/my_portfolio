@@ -28,7 +28,7 @@ export default function About() {
   };
 
   const facts = [
-    { icon: <GraduationCap size={16} />, label: "Education", text: "Final-year B.Tech – Artificial Intelligence & Machine Learning" },
+    { icon: <GraduationCap size={16} />, label: "Education", text: "Final-year B.Tech – Artificial Intelligence & Machine Learning (CGPA: 8.19)" },
     { icon: <Briefcase size={16} />, label: "Role", text: "Aspiring AI/ML Engineer" },
     { icon: <Brain size={16} />, label: "Skills", text: "LLMs, RAG, AI Agents & Generative AI" },
     { icon: <Code2 size={16} />, label: "Lang/Tech", text: "Primary Language: Python" },
@@ -84,7 +84,7 @@ export default function About() {
           
           <div className="text-sm sm:text-base text-muted-foreground leading-relaxed space-y-4">
             <p>
-              I'm Prakash, a Final-year B.Tech student in Artificial Intelligence and Machine Learning passionate about building intelligent AI solutions for real-world problems.
+              I'm Prakash K, a Final-year B.Tech student in Artificial Intelligence and Machine Learning passionate about building intelligent AI solutions for real-world problems.
             </p>
             <p>
               My interests include Machine Learning, Deep Learning, Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), AI Agents, and Computer Vision. I enjoy developing scalable, production-ready AI applications by combining strong software engineering principles with modern AI technologies.

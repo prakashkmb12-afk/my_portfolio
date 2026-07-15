@@ -191,7 +191,7 @@ export default function Hero() {
                 <div className="absolute inset-[8px] rounded-full overflow-hidden border border-white/10 dark:border-white/5 flex items-center justify-center bg-muted/20">
                   <img
                     src="/prakash.jpg"
-                    alt="Prakash - AI Engineer"
+                    alt="Prakash K - AI Engineer"
                     className="w-full h-full object-cover"
                   />
                 </div>

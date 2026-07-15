@@ -79,22 +79,15 @@ const skillsData: SkillCategory[] = [
     ],
   },
   {
-    title: "Backend Development",
-    description: "Building secure, high-performance APIs and serving models at scale.",
+    title: "Backend & Databases",
+    description: "Building secure, high-performance APIs and scalable structured data stores.",
     icon: <Globe size={18} />,
     skills: [
       { name: "FastAPI" },
       { name: "Flask" },
       { name: "REST APIs" },
-    ],
-  },
-  {
-    title: "Databases",
-    description: "Structured data stores and vector extensions for enterprise warehousing.",
-    icon: <Layers size={18} />,
-    skills: [
-      { name: "MySQL" },
       { name: "PostgreSQL" },
+      { name: "MySQL" },
     ],
   },
   {

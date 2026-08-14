@@ -104,6 +104,47 @@ const projectsData: Project[] = [
     challenges: "Severe class imbalance leading to high accuracy but poor sensitivity to actual churners. Resolved by integrating SMOTEENN preprocessing, boosting recall metrics.",
     lessons: "Understood that business-facing ML models require easy interfaces (like CSV batch uploads) and clear feature explanations to be useful to customer success teams.",
     impact: "Successfully containerized with Docker and deployed on a t2.micro AWS instance, enabling sub-second predictions on real customer data."
+  },
+  {
+    id: 5,
+    title: "Agentic RAG Document Assistant",
+    shortDesc: "An Agentic RAG data analytics platform enabling conversational AI-driven data analysis through a full-stack web application.",
+    gradient: "from-blue-600 to-cyan-600",
+    problem: "Manual analysis of structured data requires programming expertise. Standard LLM queries lack real-time context and structured retrieval validation, leading to query-document semantic mismatch.",
+    solution: "Designed an intelligent agentic routing system that automatically classifies user queries and executes dynamic data filtering workflows with structured JSON-based parameter extraction.",
+    techStack: ["Python", "Flask", "Pandas", "Groq LLM", "LangChain", "Vector DB"],
+    architecture: "User Query -> Agentic Router -> [Pandas Query Tool] -> Structured Output\n                                      \\-> [Vector Retrieve Tool] -> Context-Aware Response",
+    features: [
+      "Built an end-to-end Agentic RAG data analytics platform enabling conversational AI-driven data analysis.",
+      "Developed an intelligent agentic routing system that automatically classified user queries and executed dynamic data-filtering workflows.",
+      "Solved reliable query-routing and response-accuracy challenges by implementing prompt-engineered function calling, modular AI workflows, and context-aware data processing pipelines."
+    ],
+    github: "https://github.com/prakashkmb12-afk",
+    challenges: "Ensuring reliable parameter extraction from unstructured user inputs. Resolved by implementing structured schema parsers and prompt-engineered fallback routes.",
+    lessons: "Understood the value of structured parsing layers and agent routing boundaries in complex LLM-driven applications.",
+    impact: "Reduced data query times by 75% for non-technical users and secured 100% processing boundaries."
+  },
+  {
+    id: 6,
+    title: "Cook Craft AI: Intelligent Recipe Generator",
+    shortDesc: "A fully offline web application running Gemma:2B via Ollama to generate recipes locally with complete data privacy and zero API costs.",
+    gradient: "from-pink-600 to-rose-600",
+    problem: "Most AI-powered recipe generation platforms depend on commercial APIs, leading to API quota limitations, recurring subscription costs, internet dependency, and limited control over the underlying AI model. Additionally, users often spend significant time searching multiple websites for recipes that match their available ingredients.",
+    solution: "Designed an AI-powered recipe generation system that runs entirely on a local machine using the Gemma:2B open-source LLM via Ollama. Users provide ingredients, cooking time, servings, and preferred cuisine, and the application generates structured, personalized recipes with clear step-by-step cooking instructions through an intuitive Flask-based web interface.",
+    techStack: ["Python", "Flask", "Gemma:2B", "Ollama", "HTML/CSS", "python-dotenv"],
+    architecture: "User Preferences -> Flask Controller -> Prompt Constructor -> Ollama Runtime (Gemma:2B) -> Structured Output",
+    features: [
+      "AI-generated personalized recipes using a locally hosted LLM.",
+      "Ingredient-based recipe generation with customizable cooking time, servings, and cuisine.",
+      "Fully offline execution without API keys or internet dependency.",
+      "Secure user authentication with session-based login management.",
+      "Clean and responsive web interface built using HTML and CSS.",
+      "Structured recipe output with organized cooking steps and ingredient lists."
+    ],
+    github: "https://github.com/prakashkmb12-afk",
+    challenges: "Integrating a locally hosted LLM into a Flask web application while maintaining responsive user interaction. Used Ollama as the model runtime for efficient local inference and optimized prompt construction for consistent recipe generation. Implemented secure Flask session management using a secret key to protect authenticated user sessions. Managed sensitive configurations using environment variables instead of hardcoding credentials.",
+    lessons: "Learned how to integrate open-source Large Language Models into real-world web applications without relying on commercial APIs. Gained practical experience in prompt engineering for generating structured and context-aware AI responses. Understood the importance of secure session management and environment-based configuration in Flask applications. Explored how lightweight LLMs like Gemma:2B can power practical AI applications efficiently on local hardware.",
+    impact: "Eliminated API usage costs by utilizing an open-source LLM running locally. Reduced dependency on external cloud services, ensuring uninterrupted recipe generation. Improved user privacy by processing all requests locally without transmitting data to third-party APIs. Delivered personalized recipes in real time with minimal latency on consumer hardware."
   }
 ];
 

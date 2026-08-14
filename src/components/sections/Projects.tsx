@@ -27,63 +27,83 @@ interface Project {
 const projectsData: Project[] = [
   {
     id: 1,
-    title: "Agentic RAG Document Assistant",
-    shortDesc: "An Agentic RAG data analytics platform enabling conversational AI-driven data analysis through a full-stack web application.",
+    title: "Enterprise AI Decision Path Auditor",
+    shortDesc: "A lightweight, non-intrusive AI Governance platform designed to audit, reconstruct, and explain decisions made by autonomous AI agents.",
     gradient: "from-indigo-600 to-violet-600",
-    problem: "Manual analysis of structured data requires programming expertise. Standard LLM queries lack real-time context and structured retrieval validation, leading to query-document semantic mismatch.",
-    solution: "Designed an intelligent agentic routing system that automatically classifies user queries and executes dynamic data filtering workflows with structured JSON-based parameter extraction.",
-    techStack: ["Python", "Flask", "Pandas", "Groq LLM", "LangChain", "Vector DB"],
-    architecture: "User Query -> Agentic Router -> [Pandas Query Tool] -> Structured Output\n                                      \\-> [Vector Retrieve Tool] -> Context-Aware Response",
+    problem: "Standard application logs record final API responses but obscure intermediate agent reasoning, tool call sequences, and policy evaluation rules. Storing raw interactions also risks exposing plaintext Personally Identifiable Information (PII).",
+    solution: "Intercepts AI agent execution paths at runtime using a Python wrapper decorator. It reconstructs the step-by-step chronology of events, redacts PII using Microsoft Presidio, and compiles plain-English compliance summaries and policy matrices.",
+    techStack: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Groq API", "Microsoft Presidio"],
+    architecture: "User Request -> Workflow Strategy Router -> Instrumented Agent Wrapper -> [PII Redaction] -> PostgreSQL / SQLite -> Decision Summary",
     features: [
-      "Built an end-to-end Agentic RAG data analytics platform enabling conversational AI-driven data analysis.",
-      "Developed an intelligent agentic routing system that automatically classified user queries and executed dynamic data-filtering workflows.",
-      "Solved reliable query-routing and response-accuracy challenges by implementing prompt-engineered function calling, modular AI workflows, and context-aware data processing pipelines."
+      "Instrumented Agent Wrapper intercepting prompts, context retrieval, reasoning, and tool calls.",
+      "Decision Path Reconstruction rebuilding execution trajectories into step-by-step audit timelines.",
+      "Automated PII Redaction for Aadhaar numbers, PAN cards, bank accounts, emails, and phone numbers.",
+      "Policy Evaluation Matrix comparing requested values against policy thresholds."
     ],
-    github: "https://github.com/prakashkmb12-afk",
-    challenges: "Ensuring reliable parameter extraction from unstructured user inputs. Resolved by implementing structured schema parsers and prompt-engineered fallback routes.",
-    lessons: "Understood the value of structured parsing layers and agent routing boundaries in complex LLM-driven applications.",
-    impact: "Reduced data query times by 75% for non-technical users and secured 100% processing boundaries."
+    github: "https://github.com/prakashkmb12-afk/AI-Decision-Path-Detector",
+    challenges: "Handling infinite loop state routing when the LLM gets stuck in correcting its own inputs. Resolved by implementing a Max-Hop counter and default semantic fallbacks.",
+    lessons: "Structured outputs via Instructor/Pydantic are essential for building deterministic graph transition logic. Unstructured outputs cause parser failures in multi-agent states.",
+    impact: "Boosted RAGAS Faithfulness score from 0.64 to 0.91, and decreased answer hallucination rates by 42% on evaluation datasets."
   },
   {
     id: 2,
-    title: "AI-Multi-Agent-Blog-Generator",
-    shortDesc: "A Multi-Agent AI blog generator using LangGraph, LangChain, Groq Llama 3, and Streamlit with specialized Researcher and Writer agents.",
+    title: "AI Multi-Agent Blog Generator",
+    shortDesc: "An Agentic AI application demonstrating stateful multi-agent collaboration between Researcher and Writer agents using LangGraph.",
     gradient: "from-emerald-600 to-teal-600",
-    problem: "Developing high-quality, factually accurate blog content requires extensive manual research, fact-checking, and structured formatting, making content creation slow and resource-intensive.",
-    solution: "Implemented a modular multi-agent workflow using LangGraph to orchestrate stateful collaboration between specialized Researcher and Writer agents, utilizing DuckDuckGo Search for real-time information retrieval.",
-    techStack: ["Python", "LangGraph", "LangChain", "Llama 3", "Groq API", "Streamlit"],
-    architecture: "User Topic -> Researcher Agent (DuckDuckGo Search) -> Shared State -> Writer Agent (Llama 3) -> Blog Post Output",
+    problem: "Developing high-quality, factually accurate blog content requires extensive manual research, fact-checking, and structured formatting, making single-prompt LLM generation generic or error-prone.",
+    solution: "Orchestrated a modular multi-agent workflow using LangGraph's shared state where a Researcher agent queries the web via DuckDuckGo Search and a Writer agent synthesizes structured markdown blogs using Llama 3 on Groq.",
+    techStack: ["Python", "LangGraph", "LangChain", "Llama 3", "Groq API", "Streamlit", "DuckDuckGo Search"],
+    architecture: "User Topic -> Researcher Agent (DuckDuckGo Search) -> Shared AgentState -> Writer Agent (Llama 3 via Groq) -> Markdown Draft",
     features: [
-      "Built a Multi-Agent AI blog generator using LangGraph, LangChain, Groq Llama 3, and Streamlit with specialized Researcher and Writer agents.",
-      "Integrated DuckDuckGo Search for real-time information retrieval and Groq Llama 3 to generate structured, context-aware blog posts.",
-      "Implemented stateful agent orchestration using LangGraph's shared state, enabling seamless collaboration between AI agents in a modular workflow."
+      "Multi-Agent Orchestration using LangGraph StateGraph.",
+      "Shared State Memory allowing agents to read and append data seamlessly.",
+      "DuckDuckGo web search tool integration for live information retrieval.",
+      "Interactive Streamlit dashboard and terminal CLI modes."
     ],
-    github: "https://github.com/prakashkmb12-afk",
-    challenges: "Orchestrating information transfer and maintaining context state between agents without loops. Resolved by structuring state channels inside LangGraph and defining a strict markdown schema for the final compiled draft.",
-    lessons: "Learned stateful agent orchestration, parallel tool calling frameworks, and using specialized local/API LLMs in specialized agent roles.",
-    impact: "Automated research and drafting steps, generating factually accurate, structured blog drafts in real-time under 15 seconds."
+    github: "https://github.com/prakashkmb12-afk/AI-Multi-Agent-Blog-Generator",
+    challenges: "Orchestrating state synchronization and preventing agent feedback loops. Resolved by structuring state channels inside LangGraph and defining a strict markdown schema for the final compiled draft.",
+    lessons: "Multi-agent collaboration significantly improves content quality by separating research tasks from writing tasks, mirroring human editing processes.",
+    impact: "Automated the complete research and writing lifecycle, delivering well-structured, factually supported blog drafts in under 15 seconds."
   },
   {
     id: 3,
-    title: "AI-Powered Smart Recipe Generator",
-    shortDesc: "A fully offline web application running Gemma:2B via Ollama to generate recipes locally with complete data privacy and zero API costs.",
+    title: "PageMind AI: RAG-Powered Website Chatbot",
+    shortDesc: "An enterprise-grade, high-reliability RAG application that index-crawls any webpage to serve as an interactive, context-grounded chatbot.",
     gradient: "from-purple-600 to-pink-600",
-    problem: "Most AI-powered recipe generation platforms depend on commercial APIs, leading to API quota limitations, recurring subscription costs, internet dependency, and limited control over the underlying AI model. Additionally, users often spend significant time searching multiple websites for recipes that match their available ingredients.",
-    solution: "Designed an AI-powered recipe generation system that runs entirely on a local machine using the Gemma:2B open-source LLM via Ollama. Users provide ingredients, cooking time, servings, and preferred cuisine, and the application generates structured, personalized recipes with clear step-by-step cooking instructions through an intuitive Flask-based web interface.",
-    techStack: ["Python", "Flask", "Gemma:2B", "Ollama", "HTML/CSS", "python-dotenv"],
-    architecture: "User Preferences -> Flask Controller -> Prompt Constructor -> Ollama Runtime (Gemma:2B) -> Structured Output",
+    problem: "General-knowledge chatbots lack real-time document context, leading to outdated or fabricated information (hallucinations) in customer support or compliance scenarios.",
+    solution: "Built a Retrieval-Augmented Generation (RAG) system that crawls, cleanses, chunks, and embeds text into a ChromaDB vector database, enforcing similarity and hallucination guardrails.",
+    techStack: ["Python", "FastAPI", "ChromaDB", "Llama 3.3", "Groq SDK", "SentenceTransformers", "aiohttp"],
+    architecture: "Web URL -> aiohttp Crawler -> BeautifulSoup Cleaning -> Chunking -> SentenceTransformers -> ChromaDB -> Chat Retriever -> Guardrails -> Groq LLM",
     features: [
-      "AI-generated personalized recipes using a locally hosted LLM.",
-      "Ingredient-based recipe generation with customizable cooking time, servings, and cuisine.",
-      "Fully offline execution without API keys or internet dependency.",
-      "Secure user authentication with session-based login management.",
-      "Clean and responsive web interface built using HTML and CSS.",
-      "Structured recipe output with organized cooking steps and ingredient lists."
+      "Centered Ingestion Visualizer showing connection, chunking, and embedding progress.",
+      "ChromaDB vector store persistent storage for fast mathematical semantic lookup.",
+      "Hallucination Guardrail Pipeline checking similarity thresholds and empty retrievals.",
+      "Dynamic source citation badges linking directly back to source documents."
     ],
-    github: "https://github.com/prakashkmb12-afk",
-    challenges: "Integrating a locally hosted LLM into a Flask web application while maintaining responsive user interaction. Used Ollama as the model runtime for efficient local inference and optimized prompt construction for consistent recipe generation. Implemented secure Flask session management using a secret key to protect authenticated user sessions. Managed sensitive configurations using environment variables instead of hardcoding credentials.",
-    lessons: "Learned how to integrate open-source Large Language Models into real-world web applications without relying on commercial APIs. Gained practical experience in prompt engineering for generating structured and context-aware AI responses. Understood the importance of secure session management and environment-based configuration in Flask applications. Explored how lightweight LLMs like Gemma:2B can power practical AI applications efficiently on local hardware.",
-    impact: "Eliminated API usage costs by utilizing an open-source LLM running locally. Reduced dependency on external cloud services, ensuring uninterrupted recipe generation. Improved user privacy by processing all requests locally without transmitting data to third-party APIs. Delivered personalized recipes in real time with minimal latency on consumer hardware."
+    github: "https://github.com/prakashkmb12-afk/RAG-Powered-Website-Chatbot",
+    challenges: "Handling boilerplate web noise (ads, headers, footers). Resolved by designing custom regex-based filters and BeautifulSoup node parsers to isolate raw body content.",
+    lessons: "Setting strict prompt instructions and semantic similarity thresholds is crucial to prevent the LLM from making up answers when documents do not contain the facts.",
+    impact: "Ensured factual consistency by rejecting out-of-scope queries under a 0.30 similarity threshold, eliminating hallucination risks."
+  },
+  {
+    id: 4,
+    title: "Telecom Customer Churn Predictor",
+    shortDesc: "An end-to-end machine learning system utilizing SMOTEENN and Optuna to proactively identify customers at risk of churn.",
+    gradient: "from-orange-600 to-amber-600",
+    problem: "Customer churn directly drains recurring telecom revenues. Traditional modeling pipelines fail to handle severe class imbalances and are hard for business units to operate.",
+    solution: "Created an ML pipeline incorporating SMOTEENN for class balancing, trained six comparative models, optimized hyperparameters via Optuna, and deployed a Streamlit dashboard on AWS EC2.",
+    techStack: ["Python", "Scikit-learn", "XGBoost", "Optuna", "Streamlit", "Docker", "AWS EC2"],
+    architecture: "Telco Dataset -> preprocessing -> SMOTEENN -> Optuna Optimization -> Classifier Training -> Joblib Export -> Streamlit UI (Single/Batch Predictor)",
+    features: [
+      "End-to-End pipeline covering preprocessing, feature engineering, and training.",
+      "SMOTEENN class imbalance handling combining SMOTE with Edited Nearest Neighbors.",
+      "Interactive Streamlit Dashboard with Single Customer prediction and Batch CSV uploads.",
+      "Model Insights dashboard displaying feature importances, ROC curves, and confusion matrices."
+    ],
+    github: "https://github.com/prakashkmb12-afk/Telecom-churn-prediction",
+    challenges: "Severe class imbalance leading to high accuracy but poor sensitivity to actual churners. Resolved by integrating SMOTEENN preprocessing, boosting recall metrics.",
+    lessons: "Understood that business-facing ML models require easy interfaces (like CSV batch uploads) and clear feature explanations to be useful to customer success teams.",
+    impact: "Successfully containerized with Docker and deployed on a t2.micro AWS instance, enabling sub-second predictions on real customer data."
   }
 ];
 

@@ -119,7 +119,7 @@ const projectsData: Project[] = [
       "Developed an intelligent agentic routing system that automatically classified user queries and executed dynamic data-filtering workflows.",
       "Solved reliable query-routing and response-accuracy challenges by implementing prompt-engineered function calling, modular AI workflows, and context-aware data processing pipelines."
     ],
-    github: "https://github.com/prakashkmb12-afk",
+    github: "https://github.com/prakashkmb12-afk/End-to-end-Agentic-RAG",
     challenges: "Ensuring reliable parameter extraction from unstructured user inputs. Resolved by implementing structured schema parsers and prompt-engineered fallback routes.",
     lessons: "Understood the value of structured parsing layers and agent routing boundaries in complex LLM-driven applications.",
     impact: "Reduced data query times by 75% for non-technical users and secured 100% processing boundaries."
@@ -141,7 +141,7 @@ const projectsData: Project[] = [
       "Clean and responsive web interface built using HTML and CSS.",
       "Structured recipe output with organized cooking steps and ingredient lists."
     ],
-    github: "https://github.com/prakashkmb12-afk",
+    github: "https://github.com/prakashkmb12-afk/cookcraft_AI",
     challenges: "Integrating a locally hosted LLM into a Flask web application while maintaining responsive user interaction. Used Ollama as the model runtime for efficient local inference and optimized prompt construction for consistent recipe generation. Implemented secure Flask session management using a secret key to protect authenticated user sessions. Managed sensitive configurations using environment variables instead of hardcoding credentials.",
     lessons: "Learned how to integrate open-source Large Language Models into real-world web applications without relying on commercial APIs. Gained practical experience in prompt engineering for generating structured and context-aware AI responses. Understood the importance of secure session management and environment-based configuration in Flask applications. Explored how lightweight LLMs like Gemma:2B can power practical AI applications efficiently on local hardware.",
     impact: "Eliminated API usage costs by utilizing an open-source LLM running locally. Reduced dependency on external cloud services, ensuring uninterrupted recipe generation. Improved user privacy by processing all requests locally without transmitting data to third-party APIs. Delivered personalized recipes in real time with minimal latency on consumer hardware."

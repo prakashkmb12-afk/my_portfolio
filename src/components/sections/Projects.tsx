@@ -12,6 +12,7 @@ interface Project {
   title: string;
   shortDesc: string;
   gradient: string;
+  image: string;
   problem: string;
   solution: string;
   techStack: string[];
@@ -30,6 +31,7 @@ const projectsData: Project[] = [
     title: "Enterprise AI Decision Path Auditor",
     shortDesc: "A lightweight, non-intrusive AI Governance platform designed to audit, reconstruct, and explain decisions made by autonomous AI agents.",
     gradient: "from-indigo-600 to-violet-600",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop",
     problem: "Standard application logs record final API responses but obscure intermediate agent reasoning, tool call sequences, and policy evaluation rules. Storing raw interactions also risks exposing plaintext Personally Identifiable Information (PII).",
     solution: "Intercepts AI agent execution paths at runtime using a Python wrapper decorator. It reconstructs the step-by-step chronology of events, redacts PII using Microsoft Presidio, and compiles plain-English compliance summaries and policy matrices.",
     techStack: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Groq API", "Microsoft Presidio"],
@@ -50,6 +52,7 @@ const projectsData: Project[] = [
     title: "AI Multi-Agent Blog Generator",
     shortDesc: "An Agentic AI application demonstrating stateful multi-agent collaboration between Researcher and Writer agents using LangGraph.",
     gradient: "from-emerald-600 to-teal-600",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop",
     problem: "Developing high-quality, factually accurate blog content requires extensive manual research, fact-checking, and structured formatting, making single-prompt LLM generation generic or error-prone.",
     solution: "Orchestrated a modular multi-agent workflow using LangGraph's shared state where a Researcher agent queries the web via DuckDuckGo Search and a Writer agent synthesizes structured markdown blogs using Llama 3 on Groq.",
     techStack: ["Python", "LangGraph", "LangChain", "Llama 3", "Groq API", "Streamlit", "DuckDuckGo Search"],
@@ -70,6 +73,7 @@ const projectsData: Project[] = [
     title: "PageMind AI: RAG-Powered Website Chatbot",
     shortDesc: "An enterprise-grade, high-reliability RAG application that index-crawls any webpage to serve as an interactive, context-grounded chatbot.",
     gradient: "from-purple-600 to-pink-600",
+    image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=600&auto=format&fit=crop",
     problem: "General-knowledge chatbots lack real-time document context, leading to outdated or fabricated information (hallucinations) in customer support or compliance scenarios.",
     solution: "Built a Retrieval-Augmented Generation (RAG) system that crawls, cleanses, chunks, and embeds text into a ChromaDB vector database, enforcing similarity and hallucination guardrails.",
     techStack: ["Python", "FastAPI", "ChromaDB", "Llama 3.3", "Groq SDK", "SentenceTransformers", "aiohttp"],
@@ -90,6 +94,7 @@ const projectsData: Project[] = [
     title: "Telecom Customer Churn Predictor",
     shortDesc: "An end-to-end machine learning system utilizing SMOTEENN and Optuna to proactively identify customers at risk of churn.",
     gradient: "from-orange-600 to-amber-600",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop",
     problem: "Customer churn directly drains recurring telecom revenues. Traditional modeling pipelines fail to handle severe class imbalances and are hard for business units to operate.",
     solution: "Created an ML pipeline incorporating SMOTEENN for class balancing, trained six comparative models, optimized hyperparameters via Optuna, and deployed a Streamlit dashboard on AWS EC2.",
     techStack: ["Python", "Scikit-learn", "XGBoost", "Optuna", "Streamlit", "Docker", "AWS EC2"],
@@ -110,6 +115,7 @@ const projectsData: Project[] = [
     title: "Agentic RAG Document Assistant",
     shortDesc: "An Agentic RAG data analytics platform enabling conversational AI-driven data analysis through a full-stack web application.",
     gradient: "from-blue-600 to-cyan-600",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&auto=format&fit=crop",
     problem: "Manual analysis of structured data requires programming expertise. Standard LLM queries lack real-time context and structured retrieval validation, leading to query-document semantic mismatch.",
     solution: "Designed an intelligent agentic routing system that automatically classifies user queries and executes dynamic data filtering workflows with structured JSON-based parameter extraction.",
     techStack: ["Python", "Flask", "Pandas", "Groq LLM", "LangChain", "Vector DB"],
@@ -129,6 +135,7 @@ const projectsData: Project[] = [
     title: "Cook Craft AI: Intelligent Recipe Generator",
     shortDesc: "A fully offline web application running Gemma:2B via Ollama to generate recipes locally with complete data privacy and zero API costs.",
     gradient: "from-pink-600 to-rose-600",
+    image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=600&auto=format&fit=crop",
     problem: "Most AI-powered recipe generation platforms depend on commercial APIs, leading to API quota limitations, recurring subscription costs, internet dependency, and limited control over the underlying AI model. Additionally, users often spend significant time searching multiple websites for recipes that match their available ingredients.",
     solution: "Designed an AI-powered recipe generation system that runs entirely on a local machine using the Gemma:2B open-source LLM via Ollama. Users provide ingredients, cooking time, servings, and preferred cuisine, and the application generates structured, personalized recipes with clear step-by-step cooking instructions through an intuitive Flask-based web interface.",
     techStack: ["Python", "Flask", "Gemma:2B", "Ollama", "HTML/CSS", "python-dotenv"],
@@ -211,9 +218,20 @@ export default function Projects() {
               }}
             >
               <div>
-                {/* Image Placeholder with Gradient */}
-                <div className={`h-32 w-full bg-gradient-to-br ${project.gradient} p-4 flex flex-col justify-between relative`}>
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
+                {/* Image Container with Cover Photo & Overlay */}
+                <div className="h-32 w-full relative overflow-hidden bg-muted">
+                  {project.image ? (
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className={`w-full h-full bg-gradient-to-br ${project.gradient}`} />
+                  )}
+                  {/* Premium dark overlay to ensure text/contrast readability */}
+                  <div className="absolute inset-0 bg-black/35 group-hover:bg-black/15 transition-all duration-300" />
                 </div>
 
                 {/* Content */}

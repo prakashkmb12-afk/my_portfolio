@@ -4,6 +4,7 @@ import Hero from "src/components/sections/Hero";
 import About from "src/components/sections/About";
 import Skills from "src/components/sections/Skills";
 import Projects from "src/components/sections/Projects";
+import Certifications from "src/components/sections/Certifications";
 import Contact from "src/components/sections/Contact";
 import Footer from "src/components/Footer";
 
@@ -29,6 +30,9 @@ export default function Home() {
 
         {/* Featured Projects Grid */}
         <Projects />
+
+        {/* Certifications Section */}
+        <Certifications />
 
         {/* Contact Form Section */}
         <Contact />

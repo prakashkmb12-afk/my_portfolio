@@ -1,7 +1,11 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { Award, Calendar, ShieldCheck, Brain, Database, Cloud, RefreshCw, Eye, Sparkles, ExternalLink } from "lucide-react";
+import { 
+  Award, Calendar, ShieldCheck, Brain, Database, Cloud, 
+  RefreshCw, Eye, Sparkles, ExternalLink, Terminal, Cpu, 
+  Binary, MessageSquare 
+} from "lucide-react";
 
 interface Certification {
   title: string;
@@ -30,6 +34,38 @@ const certificationsData: Certification[] = [
     pdfUrl: "/certs/artificial_intelligence.pdf",
   },
   {
+    title: "Principles of Generative AI Certification",
+    issuer: "Infosys Springboard",
+    date: "April 12, 2026",
+    icon: <Sparkles size={18} />,
+    color: "from-fuchsia-500 to-pink-500",
+    pdfUrl: "/certs/generative_ai_principles.pdf",
+  },
+  {
+    title: "Prompt Engineering",
+    issuer: "Infosys Springboard",
+    date: "April 12, 2026",
+    icon: <Terminal size={18} />,
+    color: "from-indigo-500 to-cyan-500",
+    pdfUrl: "/certs/prompt_engineering.pdf",
+  },
+  {
+    title: "Introduction to Natural Language Processing",
+    issuer: "Infosys Springboard",
+    date: "April 9, 2026",
+    icon: <MessageSquare size={18} />,
+    color: "from-teal-500 to-emerald-500",
+    pdfUrl: "/certs/nlp_intro.pdf",
+  },
+  {
+    title: "Introduction to Deep Learning",
+    issuer: "Infosys Springboard",
+    date: "April 9, 2026",
+    icon: <Binary size={18} />,
+    color: "from-amber-500 to-orange-500",
+    pdfUrl: "/certs/deep_learning_intro.pdf",
+  },
+  {
     title: "Computer Vision 101",
     issuer: "Infosys Springboard",
     date: "April 10, 2026",
@@ -46,6 +82,14 @@ const certificationsData: Certification[] = [
     pdfUrl: "/certs/data_science.pdf",
   },
   {
+    title: "Introduction to Robotic Process Automation",
+    issuer: "Infosys Springboard",
+    date: "April 10, 2026",
+    icon: <Cpu size={18} />,
+    color: "from-rose-500 to-red-500",
+    pdfUrl: "/certs/rpa_intro.pdf",
+  },
+  {
     title: "Agile Scrum in Practice",
     issuer: "Infosys Springboard",
     date: "April 12, 2026",
@@ -58,7 +102,7 @@ const certificationsData: Certification[] = [
     issuer: "IBM",
     date: "2026",
     icon: <Award size={18} />,
-    color: "from-indigo-500 to-cyan-500",
+    color: "from-blue-600 to-indigo-600",
   },
   {
     title: "Cloud Computing",

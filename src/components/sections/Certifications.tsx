@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { Award, Calendar, ShieldCheck, Brain, Database, Cloud, RefreshCw, Eye, Sparkles } from "lucide-react";
+import { Award, Calendar, ShieldCheck, Brain, Database, Cloud, RefreshCw, Eye, Sparkles, ExternalLink } from "lucide-react";
 
 interface Certification {
   title: string;
@@ -9,22 +9,25 @@ interface Certification {
   date: string;
   icon: React.ReactNode;
   color: string;
+  pdfUrl?: string;
 }
 
 const certificationsData: Certification[] = [
   {
     title: "Artificial Intelligence Primer Certification",
     issuer: "Infosys Springboard",
-    date: "April 2026",
+    date: "April 12, 2026",
     icon: <Sparkles size={18} />,
     color: "from-violet-500 to-indigo-500",
+    pdfUrl: "/certs/ai_primer.pdf",
   },
   {
     title: "Artificial Intelligence",
     issuer: "Infosys Springboard",
-    date: "April 2026",
+    date: "April 12, 2026",
     icon: <Brain size={18} />,
     color: "from-blue-500 to-purple-500",
+    pdfUrl: "/certs/artificial_intelligence.pdf",
   },
   {
     title: "Computer Vision 101",
@@ -32,6 +35,7 @@ const certificationsData: Certification[] = [
     date: "April 10, 2026",
     icon: <Eye size={18} />,
     color: "from-emerald-500 to-teal-500",
+    pdfUrl: "/certs/computer_vision.pdf",
   },
   {
     title: "Introduction to Data Science",
@@ -39,6 +43,7 @@ const certificationsData: Certification[] = [
     date: "April 8, 2026",
     icon: <Database size={18} />,
     color: "from-pink-500 to-rose-500",
+    pdfUrl: "/certs/data_science.pdf",
   },
   {
     title: "Agile Scrum in Practice",
@@ -46,6 +51,7 @@ const certificationsData: Certification[] = [
     date: "April 12, 2026",
     icon: <RefreshCw size={18} />,
     color: "from-cyan-500 to-blue-500",
+    pdfUrl: "/certs/agile_scrum.pdf",
   },
   {
     title: "Artificial Intelligence Fundamentals",
@@ -129,10 +135,24 @@ export default function Certifications() {
               </p>
             </div>
 
-            {/* Date Footer */}
-            <div className="flex items-center gap-1.5 pt-3 border-t border-border/40 text-[10px] md:text-xs text-muted-foreground">
-              <Calendar size={12} className="shrink-0" />
-              <span>Issued: {cert.date}</span>
+            {/* Date & Action Footer */}
+            <div className="flex items-center justify-between pt-3 border-t border-border/40 text-[10px] md:text-xs text-muted-foreground">
+              <div className="flex items-center gap-1.5">
+                <Calendar size={12} className="shrink-0" />
+                <span>Issued: {cert.date}</span>
+              </div>
+              
+              {cert.pdfUrl && (
+                <a
+                  href={cert.pdfUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 text-primary hover:underline font-bold transition-all shrink-0 cursor-pointer"
+                >
+                  <span>View Certificate</span>
+                  <ExternalLink size={10} />
+                </a>
+              )}
             </div>
           </motion.div>
         ))}
